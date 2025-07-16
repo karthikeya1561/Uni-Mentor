@@ -2,16 +2,16 @@
 
 ## Table of Contents
 
-* Overview
-* Use Case
-* Key Features
-* Project Structure
-* Installation
-* Run Locally
-* Technical Details
-* Performance
-* Future Enhancements
-* Contributing
+* [Overview](#overview)
+* [Use Case](#use-case)
+* [Key Features](#key-features)
+* [Project Structure](#project-structure)
+* [Installation](#installation)
+* [Run Locally](#run-locally)
+* [Technical Details](#technical-details)
+* [Performance](#performance)
+* [Future Enhancements](#future-enhancements)
+* [Contributing](#contributing)
 
 ---
 
@@ -122,3 +122,7 @@ Make sure all modules are present and the `.env` file is properly set up.
 We welcome contributions!
 Please fork this repository, make your changes, and submit a pull request.
 Suggestions and improvements are always appreciated.
+
+---
+
+Let me know if you also want a badge section (e.g. "Built with 🧠 Hugging Face") or a live demo video link section at the top.
