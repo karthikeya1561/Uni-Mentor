@@ -1,0 +1,241 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+  background: #101114;
+  color: #f3f6fa;
+  height: 100vh;
+  overflow: hidden; /* Prevent page scrolling */
+  width: 100%; /* Ensure full width */
+  position: relative; /* Changed from fixed to relative */
+  box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+.neura-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 80%, #23283a 0%, #101114 80%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.top-nav {
+  width: 100vw;
+  max-width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px 0 48px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+.brand {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f3f6fa;
+  letter-spacing: 1px;
+}
+
+.center-main {
+  height: calc(100vh - 120px); /* Fixed height with space for input */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Hide overflow */
+  box-sizing: border-box; /* Include padding in width/height calculation */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+}
+
+/* Create a chat container to hold the messages */
+.chat-container {
+  width: 100%;
+  max-width: 700px;
+  height: calc(100% - 200px); /* Leave space for header elements */
+  overflow-y: auto; /* Only the chat messages scroll */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  padding: 20px 30px 20px 10px; /* Increased right padding to move scrollbar away from content */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #23283a #101114; /* For Firefox */
+}
+
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
+.chat-container::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: #101114; /* Match background color */
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background-color: #23283a; /* Subtle scrollbar color */
+  border-radius: 10px;
+  border: 2px solid #101114;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px 25px 10px 10px; /* Increased right padding to move content away from scrollbar */
+}
+
+/* Style for chat messages when greeting is hidden */
+.greeting-hidden .chat-container {
+  height: calc(100% - 40px); /* More space for chat when greeting is hidden */
+  margin-top: 20px;
+}
+.main-greeting {
+  font-size: 2.6rem;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  color: #f3f6fa;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.main-subtitle {
+  font-size: 1.45rem;
+  color: #b0b3bb;
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 700px;
+}
+.main-subtitle + .main-subtitle {
+  font-size: 1.08rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 40px; /* Add extra space after the menu items */
+}
+
+.feature-gap {
+  height: 40px; /* Increased space after feature list */
+  width: 100%;
+}
+.center-input-form {
+  display: flex;
+  align-items: center;
+  background: #181c24;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  padding: 0 10px;
+  width: 700px;
+  height: 48px; /* Slightly taller */
+  gap: 8px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(123, 123, 255, 0.1); /* Subtle border matching the UI color */
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.center-input-form:focus-within {
+  box-shadow: 0 4px 20px rgba(123, 123, 255, 0.25);
+  border: 1px solid rgba(123, 123, 255, 0.3);
+  transform: translateY(-2px);
+}
+.small-input-form {
+  width: 700px;
+  max-width: 90vw;
+}
+.bottom-input-form {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  margin: 0 auto;
+  z-index: 10;
+  justify-content: center;
+  width: 100vw;
+  display: flex;
+  pointer-events: none;
+}
+.bottom-input-form .center-input-form,
+.bottom-input-form.small-input-form {
+  margin: 0 auto;
+  pointer-events: all;
+}
+.center-input {
+  flex: 1;
+  background: transparent;
+  color: #f3f6fa;
+  border: none;
+  outline: none;
+  font-size: 1.05rem;
+  padding: 0 8px;
+  height: 32px;
+}
+.center-input::placeholder {
+  color: #b0b3bb;
+  font-size: 1rem;
+  opacity: 1;
+}
+.input-icon-btn {
+  background: none;
+  border: none;
+  color: #7b7bff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  margin: 0 2px;
+}
+.input-icon-btn:hover {
+  background: #23283a;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(123, 123, 255, 0.4);
+}
+.input-icon-btn:active {
+  transform: scale(0.95);
+}
+.input-icon {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .top-nav {
+    padding: 18px 12px 0 12px;
+  }
+  .main-greeting {
+    font-size: 1.1rem;
+  }
+  .main-subtitle {
+    font-size: 0.95rem;
+    max-width: 98vw;
+  }
+  .center-input-form, .bottom-input-form, .small-input-form {
+    width: 96vw;
+    min-width: 0;
+    padding: 0 2px;
+  }
+  .small-input-form {
+    width: 96vw;
+    max-width: 96vw;
+  }
+}
