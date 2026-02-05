@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uni Mentor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formal-chatbot.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="new-chat-btn">
+            <i class="fas fa-plus"></i>
+            <span>New chat</span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="nav-item">
+                <i class="fas fa-file-pdf"></i>
+                <label for="pdf-upload-input" style="cursor: pointer; flex: 1;">Upload PDF/Resume</label>
+                <input type="file" id="pdf-upload-input" accept=".pdf" style="display: none;">
+            </div>
+            <!-- Dynamic history items would go here in a real app -->
+            <div class="nav-item">
+                <i class="fas fa-comment"></i>
+                <span>Previous Chat 1</span>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="avatar user" style="width: 24px; height: 24px;">
+                    <i class="fas fa-user" style="font-size: 0.8rem;"></i>
+                </div>
+                <span class="username" style="font-size: 0.875rem; font-weight: 500;">University Student</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Messages Area -->
+        <div class="chat-container" id="chat-container">
+            <div class="messages-wrapper" id="messages-wrapper">
+
+                <!-- Welcome Message (Bot) -->
+                <div class="message-row bot">
+                    <div class="message-content">
+                        <div class="avatar bot">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="message-text">
+                            <p><strong>Hello! I'm Uni Mentor.</strong></p>
+                            <p>I can help you with:</p>
+                            <ul>
+                                <li>Analyzing PDFs and Resumes</li>
+                                <li>Career Path Guidance</li>
+                                <li>Study Schedules & Tips</li>
+                            </ul>
+                            <p>How can I assist you today?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More messages will be injected here -->
+
+            </div>
+        </div>
+
+        <!-- Input Area -->
+        <div class="input-container">
+            <div class="input-box-wrapper">
+                <textarea id="user-input" placeholder="Send a message..." rows="1"></textarea>
+                <button class="send-btn" id="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-footer">
+                Uni Mentor can make mistakes. Consider checking important information.
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/formal-chatbot.js') }}"></script>
+</body>
+
+</html>
